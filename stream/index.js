@@ -9,7 +9,9 @@ const writableStream = fs.createWriteStream("./file2.txt", {
   highWaterMark: 2,
 });
 
-readableSteam.on("data", (chunk) => {
-  console.log("chunk:", chunk);
-  writableStream.write(chunk);
-});
+readableSteam.pipe(writableStream);
+
+// readableSteam.on("data", (chunk) => {
+//   console.log("chunk:", chunk);
+//   writableStream.write(chunk);
+// });
