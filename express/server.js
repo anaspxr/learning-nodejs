@@ -10,3 +10,11 @@ app.get("/", (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${3000}`);
 });
+
+const userRouter = require("./routers/users");
+
+app.use("/users", userRouter);
+
+app.get("/test", (req, res) => {
+  res.send(req.query);
+});
